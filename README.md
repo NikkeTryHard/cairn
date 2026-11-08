@@ -1,6 +1,6 @@
-# RackMaw
+# Cairn
 
-Rust source for the RackMaw-Champion-Ctl3 ScrabbleBot configuration. The bot estimates tile value with sampled future racks, paces bids against a fitted market model, and searches word partitions for cashing and the final dump. It is derived from Karthik Subramanian's MIT-licensed Vickrey-Scrabblebot; the original license and attribution are retained.
+Rust source for Cairn, an auction ScrabbleBot. The bot estimates tile value with sampled future racks, paces bids against a fitted market model, and searches word partitions for cashing and the final dump. It is derived from Karthik Subramanian's MIT-licensed Vickrey-Scrabblebot; the original license and attribution are retained.
 
 ## Hackathon build
 
