@@ -12,6 +12,17 @@ cargo build --release --locked -p vickrey-bot
 
 The executable is `target/release/vickrey`. The release profile uses optimization level 3, thin LTO, and one code-generation unit. The dictionary is included in the source build. The files in `config/` are the fixed Champion-Ctl3 strategy and market parameters. This bot does not use a neural network, Python, CUDA, or model compilation.
 
+For the native competition build on Linux with Clang and mold installed:
+
+```sh
+CARGO_PROFILE_RELEASE_LTO=fat CARGO_PROFILE_RELEASE_CODEGEN_UNITS=1 \
+CARGO_PROFILE_RELEASE_OPT_LEVEL=3 CARGO_PROFILE_RELEASE_DEBUG=0 \
+RUSTFLAGS='-C target-cpu=native -C linker=clang -C link-arg=-fuse-ld=mold' \
+cargo build --release --locked -p vickrey-bot
+```
+
+This enables full LTO and targets the build machine's CPU. The resulting binary requires a compatible CPU; use the portable build above on different tournament hardware. Strategy parameters are unchanged.
+
 ## Run
 
 Use a bot credential issued by the ScrabbleBot server, stored outside the repository:
